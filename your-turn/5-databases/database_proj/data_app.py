@@ -19,6 +19,8 @@ def list_albums():
     for a in albums:
         print("* {} - {} tracks".format(a.name, len(a.tracks)))
 
+    # foo = "SELECT name, url FROM Album WHERE has_preview AND year > 2001"
+
 
 if __name__ == '__main__':
     main()
