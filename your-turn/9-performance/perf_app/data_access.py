@@ -7,11 +7,16 @@ def get_records(text):
     return results
 
 
-# TODO: Make this faster by caching / reusing the connection
+__conn = None
 def create_connection():
+    global __conn
+
+    if __conn:
+        return __conn
+
     time.sleep(.250)
-    conn = {'connected': True}
-    return conn
+    __conn = {'connected': True}
+    return __conn
 
 
 def run_query(conn, text):
@@ -27,7 +32,7 @@ def run_query(conn, text):
 
 
 def read_row(conn):
-    time.sleep(.001)  # TODO: Improved index, i.e. shorting this!
+    time.sleep(.00001)
     if conn.get('connected'):
         return {'col1': 'val1', 'col2': 'val2'}
 
