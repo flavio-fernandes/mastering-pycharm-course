@@ -40,6 +40,10 @@ def book_table(table_id: str):
     return table
 
 
+def unbook_table(table : Table):
+    table.is_booked = False
+
+
 def all_tables():
     return tables[:]
 
